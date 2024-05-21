@@ -13,7 +13,8 @@ class CategorySerializer(serializers.ModelSerializer):
         fields =['name','image']
 
 class ReviewSerializer(serializers.ModelSerializer):
-     class  Meta:
+    reviewer_name =serializers.StringRelatedField()
+    class  Meta:
         model = Review 
         fields =['reviewer_name','content','created_at','rating']
 class BookListSerializer(serializers.ModelSerializer):
