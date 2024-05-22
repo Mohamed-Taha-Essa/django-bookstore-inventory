@@ -1,6 +1,7 @@
 from django_filters import rest_framework as filters
 from .models import Book
 
+
 class BookFilter(filters.FilterSet):
     in_stock = filters.BooleanFilter(method='filter_in_stock')
 
