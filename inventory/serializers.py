@@ -11,6 +11,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
     def get_books_count(self,obj):
         return obj.book_author.count()
+    
 class CategorySerializer(serializers.ModelSerializer): 
     class  Meta:
         model = Category 
@@ -21,13 +22,21 @@ class ReviewSerializer(serializers.ModelSerializer):
     class  Meta:
         model = Review 
         fields =['reviewer_name','content','created_at','rating']
+        
 class BookListSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
     author =serializers.StringRelatedField()
+    in_stock=serializers.SerializerMethodField()
 
     class  Meta:
         model = Book 
-        fields =['title','author','category','image','description','quantity','price']
+        fields =['title','author','category','image','description','quantity','price','in_stock']
+
+    def get_in_stock(self,obj):
+        if(obj.quantity > 0):
+            return True
+        else:
+            return False
 
 class BookDetailSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
