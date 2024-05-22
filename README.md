@@ -86,7 +86,9 @@ DEBUG=True
 DATABASE_URL=sqlite:///db.sqlite3
 ```
 
-### Swagger Configuration
+### Swagger Configuration 
+![Image Alt Text](images/swagger.jpeg)
+
 
 Swagger documentation is automatically generated and available at `/swagger/` once the server is running.
 
