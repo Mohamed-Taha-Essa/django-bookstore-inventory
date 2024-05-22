@@ -83,7 +83,9 @@ Example:
 ```env
 SECRET_KEY=your_secret_key
 DEBUG=True
-DATABASE_URL=sqlite:///db.sqlite3
+DATABASE_NAME=db.sqlite3
+ALLOWED_HOSTS=localhost, 127.0.0.1
+
 ```
 
 ### Swagger Configuration 
